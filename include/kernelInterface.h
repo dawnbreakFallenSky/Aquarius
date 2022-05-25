@@ -125,6 +125,20 @@ public:
     virtual bool isControlEvent() = 0;
 };
 
-
+/*-----------------------------------------------------------------------------------------
+**                                     Class Definition
+**-----------------------------------------------------------------------------------------
+*/
+/* <类描述> */
+/* 1)状态接口 */
+/* 2) */
+class Status
+{
+public:
+    /* 赋值运算符重载 */
+    virtual Status& operator = (int value) = 0;
+    /* int转换函数 */
+    virtual operator int() = 0;
+};
 
 #endif /* KERNELINTERFACE_H */
