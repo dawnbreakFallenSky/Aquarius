@@ -141,4 +141,48 @@ public:
     virtual operator int() = 0;
 };
 
+/*-----------------------------------------------------------------------------------------
+**                                     Class Definition
+**-----------------------------------------------------------------------------------------
+*/
+/* <类描述> */
+/* 1)程序运行环境接口 */
+/* 2) */
+class Context
+{
+public:
+    /* 状态管理 */
+    /* 获取状态 */
+    virtual Status& getStatus(const string& statusName, int initValue = STATUS_INVALID) = 0;
+
+    /* 内存块管理 */
+    /* 获取内存块指针 */
+    virtual unsigned char* getShm(const string& shmName, unsigned int shmSize) = 0;
+
+    /* 命令行接口 */
+    /* 注册命令行指令 */
+    virtual void registerCommand(const string& cmd, CmdHandler cmdHandler, const string& comment) = 0;
+
+    /* 日志 */
+    /* 记录日志 */
+    virtual void log(const char* info) = 0;
+
+    /* 事件管理 */
+    /* 发布事件 */
+    virtual void publish(unsigned int eventId, const unsigned char* msg, unsigned int msgLen) = 0;
+    /* 获取事件计数 */
+    virtual unsigned long long getEventCount(unsigned int eventId) = 0;
+    /* 获取事件消息累计大小 */
+    virtual unsigned long long getEventMsgSize(unsigned int eventId) = 0;
+
+    /* 时间函数 */
+    /* 获取程序运行时间(单位为定时周期) */
+    virtual unsigned long long appTime() = 0;
+    /* 获取UTC时间(单位为S) */
+    virtual long long utcTime() = 0;
+    /* 获取时间戳 */
+    virtual unsigned char* timestamp() = 0;
+};
+
+
 #endif /* KERNELINTERFACE_H */
