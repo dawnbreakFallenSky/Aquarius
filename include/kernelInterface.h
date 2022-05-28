@@ -184,5 +184,55 @@ public:
     virtual unsigned char* timestamp() = 0;
 };
 
+/*-----------------------------------------------------------------------------------------
+**                                     Class Definition
+**-----------------------------------------------------------------------------------------
+*/
+/* <类描述> */
+/* 1)模块处理器基类 */
+/* 2) */
+class Processor
+{
+public:
+    /* 构造函数 */
+    Processor(Context* context, const string& param)throw(bad_alloc)
+    {
+        /* 判断参数有效性并初始化成员变量 */
+        if (NULL == context)
+        {
+            printf("Processor::Processor()--invalid 'context'.\n");
+            throw bad_alloc();
+        }
+        else {
+            _context = context;
+        }
+        _param = param;
+    }
+    /* 析构函数 */
+    virtual ~Processor()
+    {
+#ifdef DEBUG
+        printf("Processor::~Processor()\n");
+#endif
+    }
+
+    /* 模块初始化 */
+    virtual void init() = 0;
+    /* 模块事件处理函数 */
+    virtual void process(Event* event) = 0;
+
+    /* 获取订阅事件ID列表 */
+    list<unsigned int>& subscribeEventIdList()
+    {
+        return _subscribeEventIdList;
+    }
+protected:
+    /* 程序上下文 */
+    Context* _context;
+    /* 参数 */
+    string _param;
+    /* 订阅事件ID列表 */
+    list<unsigned int> _subscribeEventIdList;
+};
 
 #endif /* KERNELINTERFACE_H */
