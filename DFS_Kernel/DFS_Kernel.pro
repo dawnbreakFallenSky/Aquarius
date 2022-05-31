@@ -25,4 +25,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    APP/clock.h
+    APP/clock.h \
+    APP/lockfreeQueue.h
