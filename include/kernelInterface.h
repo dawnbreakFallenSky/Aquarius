@@ -195,7 +195,7 @@ class Processor
 {
 public:
     /* 构造函数 */
-    Processor(Context* context, const string& param)throw(bad_alloc)
+    Processor(Context* context, const string& param)
     {
         /* 判断参数有效性并初始化成员变量 */
         if (NULL == context)

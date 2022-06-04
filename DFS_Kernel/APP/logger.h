@@ -72,7 +72,7 @@ class Logger
 {
 public:
     /* 构造函数 */
-    Logger(const string& logPath)throw(bad_alloc);
+    Logger(const string& logPath);
     /* 析构函数 */
     ~Logger();
 

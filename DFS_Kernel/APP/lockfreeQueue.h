@@ -46,7 +46,7 @@ class LockfreeQueue
 {
 public:
     /* 构造函数 */
-    LockfreeQueue()throw(bad_alloc);
+    LockfreeQueue();
     /* 析构函数 */
     ~LockfreeQueue();
 
@@ -99,7 +99,7 @@ private:
 **.EH--------------------------------------------------------------------------------------
 */
 template<typename T, unsigned int len>
-LockfreeQueue<T, len>::LockfreeQueue()throw(bad_alloc)
+LockfreeQueue<T, len>::LockfreeQueue()
 {
     /* 初始化成员变量 */
     _head = 0;
@@ -119,7 +119,6 @@ LockfreeQueue<T, len>::LockfreeQueue()throw(bad_alloc)
     catch(bad_alloc&)
     {
         printf("LockfreeQueue::LockfreeQueue()--allocate memory for '_items' error.\n");
-        throw;
     }
 }
 /* END of LockfreeQueue */

@@ -58,6 +58,7 @@
 #pragma warning (disable:4290)  /* 忽略C++异常规范警告 */
 #pragma warning (disable:4275)  /* 忽略非dll接口用作dll接口的基类警告 */
 #define _CRT_SECURE_NO_WARNINGS /* 忽略函数非安全警告 */
+#define _HAS_STD_BYTE 0         /* C++17添加了std::Byte并更改了byte的语义,定义此宏避免命名空间污染 */
 #endif
 
 /*-----------------------------------------------------------------------------------------
