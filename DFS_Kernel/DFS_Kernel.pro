@@ -17,6 +17,7 @@ DESTDIR = $$PWD/../Debug
 
 SOURCES += \
     APP/clock.cpp \
+    APP/dfsStatus.cpp \
     APP/logger.cpp \
     APP/main.cpp
 
@@ -27,5 +28,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     APP/clock.h \
+    APP/dfsStatus.h \
     APP/lockfreeQueue.h \
     APP/logger.h
